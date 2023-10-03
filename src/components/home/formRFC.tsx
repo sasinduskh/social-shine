@@ -106,13 +106,16 @@ export default function FormRFC() {
             name=""
             value={data.prompt}
             onChange={(e) => setData({ ...data, prompt: e.target.value })}
-            placeholder="Create a beautifull post"
+            placeholder="I'm posted a image about my family. i want some engage children day with my childs"
             className="w-full border-[1px] md:max-w-[550px] min-h-[110px] max-h-[110px] md:min-w-[550px] outline-none shadow-xl py-[10px] px-[10px] rounded-xl pr-[40px]"
           ></textarea>
           <button
             onClick={() => create({ ...data })}
             disabled={!data.prompt}
-            className="absolute right-[10px] disabled:opacity-20 duration-150 hover:bg-black/10 py-[5px] px-[5px] rounded-lg"
+            className={[
+              "absolute right-[10px] disabled:cursor-not-allowed disabled:opacity-20 duration-150 hover:bg-black/10 py-[5px] px-[5px] rounded-lg",
+              loading ? "cursor-not-allowed" : "",
+            ].join(" ")}
           >
             {loading ? <LoadingCircle /> : <SendIcon className="w-[20px]  " />}
           </button>

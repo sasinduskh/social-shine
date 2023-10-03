@@ -7,6 +7,7 @@ import { BsGithub } from "react-icons/bs";
 import { Toaster } from "sonner";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { CONFIG } from "@/lib/untils";
 const bebas = Bebas_Neue({
   subsets: ["latin"],
   variable: "--font-bebas",
@@ -42,7 +43,7 @@ export default function RootLayout({
               </Link>
             </div>
             <div>
-              <Link href="https://github.com/sasinduskh" target="_blank">
+              <Link href={CONFIG.sourceCode} target="_blank">
                 <div className=" flex items-center space-x-[5px]">
                   <BsGithub /> <span>Source Code</span>
                 </div>
@@ -62,7 +63,7 @@ export default function RootLayout({
                 A project by{" "}
                 <Link
                   className="font-bold"
-                  href="https://x.com/sasindusk"
+                  href={CONFIG.xUrl}
                   target="_blank"
                 >
                   Sasindu Kavinda
