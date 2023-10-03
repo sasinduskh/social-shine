@@ -22,7 +22,7 @@ export function useGenerateContent() {
       messages: [
         {
           role: "user",
-          content: `"Create a small post content for ${props.prompt}, about ${
+          content: `"Create a small post content for ${props.ac}, about ${
             props.prompt
           }. ${props.hashtag ? "with hashtags" : "without hashtags"}. ${
             props.emoji ? "with emoji" : "without emoji"
