@@ -12,7 +12,7 @@ export default function Hero() {
         className="text-center"
       >
         <div className="flex justify-center">
-          <Link href="" target="_blank">
+          <Link href="https://twitter.com/sasindusk/status/1709189650827379117" target="_blank">
             <div className="bg-black/60 hover:bg-black/90 duration-300 text-white px-[20px] py-[10px] rounded-full flex items-center space-x-[10px]">
               <XIcon />
               <span>Hey this is socialshine</span>
