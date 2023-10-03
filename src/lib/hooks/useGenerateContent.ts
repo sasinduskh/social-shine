@@ -16,6 +16,7 @@ export function useGenerateContent() {
 
   const create = async function (props: Types) {
     setLoading(true);
+    setOutput("");
     toast.success("Your content is being processed.....");
     const chatCompletion: any = await openai.chat.completions.create({
       messages: [
