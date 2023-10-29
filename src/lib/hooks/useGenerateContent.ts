@@ -16,12 +16,13 @@ export function useGenerateContent() {
 
   const create = async function (props: Types) {
     setLoading(true);
+    setOutput("");
     toast.success("Your content is being processed.....");
     const chatCompletion: any = await openai.chat.completions.create({
       messages: [
         {
           role: "user",
-          content: `"Create a small post content for ${props.prompt}, about ${
+          content: `"Create a small post content for ${props.ac}, about ${
             props.prompt
           }. ${props.hashtag ? "with hashtags" : "without hashtags"}. ${
             props.emoji ? "with emoji" : "without emoji"
