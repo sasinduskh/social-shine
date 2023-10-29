@@ -1,7 +1,5 @@
 "use client";
-import Link from "next/link";
 import { FC } from "react";
-import { useSearchParams } from "next/navigation";
 
 export const PrimaryBtn: FC<Types> = (props) => {
   return (

@@ -3,13 +3,11 @@ import { useState } from "react";
 import { PrimaryBtn } from "../button";
 import SendIcon from "../icons/send";
 import { motion } from "framer-motion";
-import axios from "axios";
-import { OpenAI } from "openai";
 import { IoCopyOutline } from "react-icons/io5";
-import { toast } from "sonner";
 import LoadingCircle from "../icons/loading";
 import { useGenerateContent } from "@/lib/hooks/useGenerateContent";
 import { useCopyClipboard } from "@/lib/hooks/useCopyClipboard";
+import { SocialMediaList } from "@/lib/untils";
 interface Types {
   prompt: string;
   ac: string;
@@ -22,13 +20,12 @@ export default function FormRFC() {
   const [data, setData] = useState<Types>({
     prompt: "",
     ac: "tiktok",
-
     hashtag: true,
     emoji: true,
   });
 
-  const { create, loading, error, output } = useGenerateContent();
-  const { coppied, copy } = useCopyClipboard();
+  const { create, loading, output } = useGenerateContent();
+  const { copy } = useCopyClipboard();
 
   return (
     <section className="flex flex-col items-center">
@@ -38,36 +35,15 @@ export default function FormRFC() {
         transition={{ delay: 0.3 }}
         className="flex md:flex-row md:space-y-0 space-y-[10px] flex-col  md:space-x-[10px] mt-[40px]"
       >
-        <PrimaryBtn
-          click={() => setData({ ...data, ac: "tiktok" })}
-          active={data?.ac == "tiktok" ? true : false}
-        >
-          TikTok
-        </PrimaryBtn>
-        <PrimaryBtn
-          click={() => setData({ ...data, ac: "facebook" })}
-          active={data?.ac == "facebook" ? true : false}
-        >
-          Facebook
-        </PrimaryBtn>
-        <PrimaryBtn
-          click={() => setData({ ...data, ac: "youtube" })}
-          active={data?.ac == "youtube" ? true : false}
-        >
-          Youtube
-        </PrimaryBtn>
-        <PrimaryBtn
-          click={() => setData({ ...data, ac: "linkedin" })}
-          active={data?.ac == "linkedin" ? true : false}
-        >
-          Linkedin
-        </PrimaryBtn>
-        <PrimaryBtn
-          click={() => setData({ ...data, ac: "twitter" })}
-          active={data?.ac == "twitter" ? true : false}
-        >
-          X
-        </PrimaryBtn>
+        {SocialMediaList.map((_data, i) => (
+          <PrimaryBtn
+            active={data?.ac == _data.id ? true : false}
+            key={i}
+            click={() => setData({ ...data, ac: _data.id })}
+          >
+            {_data.lable}
+          </PrimaryBtn>
+        ))}
       </motion.div>
 
       <motion.div
@@ -162,3 +138,4 @@ export default function FormRFC() {
     </section>
   );
 }
+

@@ -1,7 +1,6 @@
 import FormRFC from "@/components/home/formRFC";
 import Hero from "@/components/home/hero";
 import { Metadata } from "next";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Socialshine",

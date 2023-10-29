@@ -6,13 +6,8 @@ import Logo from "@/components/icons/logo";
 import { BsGithub } from "react-icons/bs";
 import { Toaster } from "sonner";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import { CONFIG } from "@/lib/untils";
-const bebas = Bebas_Neue({
-  subsets: ["latin"],
-  variable: "--font-bebas",
-  weight: "400",
-});
+
 
 const youngserif = Young_Serif({
   subsets: ["latin"],
